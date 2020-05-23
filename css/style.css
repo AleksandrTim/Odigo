@@ -741,7 +741,6 @@ img {
     margin-right: 15px;
 }
 
-
 .places__view-all {
     text-decoration: none;
     text-transform: uppercase;
@@ -767,6 +766,8 @@ img {
 .places__card {
     position: relative;
     overflow: hidden;
+    width: 100%;
+    height: auto;
 }
 
 .places__card:hover 
@@ -801,7 +802,8 @@ img {
 .places__cards {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
-    grid-gap: 10px;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
 }
 
 .places__card_size_lg {
@@ -817,12 +819,12 @@ img {
     transition: transform .15s linear;
 }
 
-.place__card-pic-size-lg {
+.places__card-pic-size_lg {
     height: 354px;
     width: 100%;
 }
 
-.place__card-pic-size-sm {
+.places__card-pic-size_sm {
     height: 283px;
     width: 100%;
 }
@@ -844,7 +846,7 @@ img {
 .tours__tour {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0 108px;
+    grid-column-gap: 108px;
 
     align-items: center;
 
@@ -912,13 +914,15 @@ img {
 
 .top__cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 57px;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 57px;
+    grid-row-gap: 57px;
 }
 
 .top__card {
     display: flex;
     flex-direction: column;
+    grid-column: span 2;
 }
 
 .top__card-pic {
@@ -1072,11 +1076,96 @@ img {
 }
 
 /* Media */
+@media screen and (max-width: 960px) {
+    .search-form__field {
+        margin-bottom: 25px;
+    }
+    /* Benefits */
+    .benefits {
+        margin-bottom: 75px;
+    }
+    .benefits__cards {
+        padding: 0 25px;
+        grid-column-gap: 25px;
+    }
+    .benefits__title {
+        padding: 50px 25px;
+    }
+    .benefits__wrap {
+        box-shadow: none;
+    }
+    .benefits__card {
+        margin-bottom: 0;
+    }
+    /* Places */
+    .places {
+        margin-bottom: 75px;
+    }
+    .places__card_size_lg {
+        grid-column: span 6;
+    }
+    .places__card_size_sm {
+        grid-column: span 6;
+    }
+    .places__card-pic-size_lg,
+    .places__card-pic-size_sm {
+        height: 300px;
+    }
+    /* Tours */
+    .tours {
+        margin-bottom: 0;
+    }
+    .tours__tour {
+        grid-column-gap: 35px;
+    }
+    .tour__info {
+        padding-left: 0;
+    }
+    .tour__title {
+        font-size: 25px;
+        padding-bottom: 15px;
+    }.tour__desc {
+        padding-bottom: 15px;
+    }
+    /* Top */
+    .top {
+        margin-bottom: 50px;
+    }
+    .top__title {
+        margin-bottom: 35px;
+    }
+    .top__cards {
+        grid-column-gap: 25px;
+        grid-row-gap: 40px;
+    }
+    .top__card {
+        grid-column: span 3;
+    }
+    .top__card-pic {
+        margin-bottom: 20px;
+    }
+    .top__card-desc {   
+        margin-bottom: 15px;
+    }
+    /* Footer */
+    .footer {
+        padding: 40px 0 100px;
+    }
+}
+
 @media screen and (max-width: 767px) {
+    .section-title {
+        margin-bottom: 20px;
+    }
+    .section-title::after {
+        width: 50%;
+    }
     .header__burger {
         display: block;
     }
-
+    .header__wrapper {
+        padding-top: 28px;
+    }
     .header__nav {
         width: 100%;
         height: 100%;
@@ -1089,27 +1178,22 @@ img {
         transform: translateX(100%);
         transition: transform .2s linear;
     }
-
     .header__nav_active {
         transform: translateX(0);
-        transition: transform .2s linear;
+        transition: transform  .2s linear;
     }
-
     .header__item {
         width: 100%;
         margin-right: 0;
         margin-bottom: 30px;
     }
-
     .header__item:last-child {
         margin-bottom: 0;
     }
-
     .header__link {
         font-size: 42px;
         line-height: 48px;
     }
-
     .header__nav-close {
         width: 40px;
         height: 40px;
@@ -1117,7 +1201,7 @@ img {
         top: 20px;
         right: 0;
         z-index: 11;
-        
+        margin-right: 10px;
     }   
     .header_nav-close-line {
         display: block;
@@ -1135,4 +1219,124 @@ img {
         transform: translateY(-50%)
         rotate(-45deg);
     }
+    /* Intro */
+    .intro {
+        height: 100%;
+        padding-top: 90px;
+    }
+    .intro__title {
+        font-size: 32px;
+        line-height: 48px;
+        padding-bottom: 14px;
+    }
+    .intro__subtitle {
+        font-size: 14px;
+        padding-bottom: 25px;
+    }
+    .search-form__field {
+        margin-right: 0;
+        width: 100%;
+        padding-bottom: 12px;
+        background: transparent url(../img/svg/circle_icon.svg)
+        no-repeat left 2px;
+    }
+    .search-form__field::placeholder {
+        font-size: 14px;
+    }
+    .search-form__submit {
+        width: 100%;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+    /* Benefits */
+    .benefits {
+        margin-bottom: 0;
+    }
+    .benefits__title {
+        font-size: 32px;
+    }
+    .benefits__card {
+        grid-column: span 3;
+    }
+    .benefits__card-pic {
+        margin-bottom: 20px;
+    }
+    .benefits__card-title {
+        margin-bottom: 15px;
+    }
+    .benefits__card-desc {
+        margin-bottom: 10px;
+    }
+    .benefits__card-more {
+        margin-bottom: 50px;
+    }
+    /* Places */
+    .places__title {
+        font-size: 32px;
+    }
+    .places__card-pic-size_lg,
+    .places__card-pic-size_sm {
+        height: 230px;
+    }
+    .places__card-title {
+        font-size: 32px;
+    }
+    .places__caption {
+        margin-bottom: 0;
+    }
+    .places__view-all {
+        margin-bottom: 15px;
+    }
+    /* Tour */
+    .tour__pic,
+    .tour__info {
+        grid-column: span 2;
+    }
+    .tour__pic_mob-first {
+        grid-row-start: -1;
+    }
+    /* Top */
+    .top__card {
+        grid-column: span 6;
+    }
+    .top__card-stats {
+        max-width: 386px;
+    }
+    .top__card-pic {
+        margin-bottom: 10px;
+    }
+    .top__cards {
+        grid-row-gap: 60px;
+    }
+    .top__card-more {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+    /* Footer */
+    .footer_item {
+        display: block;
+    }
+    .footer_logo {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    .footer__nav {
+        padding-top: 20px;
+        width: 100%;
+    }
+    .footer__menu {
+        width: 50%;
+        margin-bottom: 20px;
+    }
+    .footer__menu-link {
+        font-size: 14px;
+    }
 }
+
+@media screen and (max-width: 500px) {
+    .header__nav {
+        padding: 75px 35px;
+    }
+}
+
